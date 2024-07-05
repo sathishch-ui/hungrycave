@@ -26,12 +26,12 @@ mongoose
   .then(() => console.log("Database connected"))
   .catch((error) => console.log(error));
 
-app.use("/", (req, res) => {
-  res.send("<h1> Welcome </h1>");
-});
-
 app.use(bodyParser.json())
 app.use('/vendor', vendorRoutes)
 app.use('/firm', firmRoutes)
 app.use('/product', productRoutes)
 app.use('/uploads', express.static('uploads'))
+
+app.use("/", (req, res) => {
+  res.send("<h1> Welcome </h1>");
+});
