@@ -12,7 +12,7 @@ const productRoutes =require('./routes/productRoutes')
 
 const app = express();
 
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 
 app.listen(PORT, () => {
   console.log(`Server Started at Port ${PORT}`);
@@ -26,7 +26,7 @@ mongoose
   .then(() => console.log("Database connected"))
   .catch((error) => console.log(error));
 
-app.use("/home", (req, res) => {
+app.use("/", (req, res) => {
   res.send("<h1> Welcome </h1>");
 });
 
